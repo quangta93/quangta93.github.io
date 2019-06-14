@@ -7,10 +7,10 @@ const postCSSMixins = require('postcss-mixins')
 
 module.exports = {
   siteMetadata: {
-    title: `Hello Friend`,
-    description: `A simple starter for Gatsby. That's it.`,
+    title: `Quang Tran`,
+    description: `Personal blog and portfolio site`,
     copyrights: '',
-    author: `@panr`,
+    author: `@quangta93`,
     logo: {
       src: '',
       alt: '',
@@ -26,12 +26,8 @@ module.exports = {
         path: '/about',
       },
       {
-        title: 'Showcase',
-        path: '/showcase',
-      },
-      {
-        title: 'Example',
-        path: '/example',
+        title: 'Blog',
+        path: '/',
       },
     ],
   },
@@ -114,8 +110,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-hello-friend`,
-        short_name: `hello-friend`,
+        name: `Quang Tran`,
+        short_name: `quang-tran`,
         start_url: `/`,
         background_color: `#292a2d`,
         theme_color: `#292a2d`,
