@@ -119,5 +119,11 @@ module.exports = {
         icon: `src/images/hello-icon.png`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-142168946-1`
+      }
+    }
   ],
 }
