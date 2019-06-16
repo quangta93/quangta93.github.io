@@ -6,7 +6,7 @@ const { toKebabCase } = require('./src/helpers')
 const pageTypeRegex = /src\/(.*?)\//
 const getType = node => node.fileAbsolutePath.match(pageTypeRegex)[1]
 
-const pageTemplate = path.resolve(`./src/templates/page.js`)
+const blogTemplate = path.resolve(`./src/templates/blog.js`)
 const indexTemplate = path.resolve(`./src/templates/index.js`)
 const tagsTemplate = path.resolve(`./src/templates/tags.js`)
 
@@ -64,9 +64,9 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
     paginate({
       createPage,
       items: posts,
-      component: indexTemplate,
+      component: blogTemplate,
       itemsPerPage: siteMetadata.postsPerPage,
-      pathPrefix: '/',
+      pathPrefix: '/blog',
     })
 
     // Create each markdown page and post
@@ -80,7 +80,7 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
 
       createPage({
         path: node.frontmatter.path,
-        component: pageTemplate,
+        component: indexTemplate,
         context: {
           type: getType(node),
           next: isNextSameType ? next : null,
