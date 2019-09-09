@@ -15,4 +15,4 @@ Contact:
 [LinkedIn](https://www.linkedin.com/in/quangta93/)&nbsp;
 [Github](https://www.github.com/quangta93/)&nbsp;
 [Email](mailto:quangta93@gmail.com)&nbsp;
-<a href="/Quang Tran.pdf" target="_blank">Resume</a>
+<a href="/Resume_QuangTran.pdf" target="_blank">Resume</a>
