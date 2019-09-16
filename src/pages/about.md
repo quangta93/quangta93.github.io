@@ -2,7 +2,7 @@
 title: "About"
 date: "2019-06-14"
 author: "Quang Tran"
-path: "/"
+path: "/about"
 ---
 
 Hi there,

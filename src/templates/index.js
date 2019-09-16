@@ -1,70 +1,99 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Post from '../components/post'
+import Navigation from '../components/navigation'
 
-const BlogPostTemplate = ({ data, pageContext }) => {
+const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
   const {
-    frontmatter: { title, date, path, author, coverImage, excerpt, tags },
-    excerpt: autoExcerpt,
-    id,
-    html,
-  } = data.markdownRemark
-  const { next, previous } = pageContext
+    allMarkdownRemark: { edges: posts },
+  } = data
 
   return (
-    <Layout>
-      <SEO title={title} description={excerpt || autoExcerpt} />
-      <Post
-        key={id}
-        title={title}
-        date={date}
-        path={path}
-        author={author}
-        coverImage={coverImage}
-        html={html}
-        tags={tags}
-        previousPost={previous}
-        nextPost={next}
-      />
-    </Layout>
+    <>
+      <SEO />
+      <Layout>
+        {posts.map(({ node }) => {
+          const {
+            id,
+            excerpt: autoExcerpt,
+            frontmatter: {
+              title,
+              date,
+              path,
+              author,
+              coverImage,
+              excerpt,
+              tags,
+            },
+          } = node
+
+          return (
+            <Post
+              key={id}
+              title={title}
+              date={date}
+              path={path}
+              author={author}
+              coverImage={coverImage}
+              tags={tags}
+              excerpt={excerpt || autoExcerpt}
+            />
+          )
+        })}
+
+        <Navigation
+          previousPath={previousPagePath}
+          previousLabel="Newer posts"
+          nextPath={nextPagePath}
+          nextLabel="Older posts"
+        />
+      </Layout>
+    </>
   )
 }
 
-export default BlogPostTemplate
-
-BlogPostTemplate.propTypes = {
+Index.propTypes = {
   data: PropTypes.object.isRequired,
   pageContext: PropTypes.shape({
-    next: PropTypes.object,
-    previous: PropTypes.object,
+    nextPagePath: PropTypes.string,
+    previousPagePath: PropTypes.string,
   }),
 }
 
-export const pageQuery = graphql`
-  query($path: String) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      frontmatter {
-        title
-        date(formatString: "DD MMMM YYYY")
-        path
-        author
-        excerpt
-        tags
-        coverImage {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
+export const postsQuery = graphql`
+  query($limit: Int!, $skip: Int!) {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "//posts//" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      edges {
+        node {
+          id
+          excerpt
+          frontmatter {
+            title
+            date(formatString: "DD MMMM YYYY")
+            path
+            author
+            excerpt
+            tags
+            coverImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }
       }
-      id
-      html
-      excerpt
     }
   }
 `
+
+export default Index
