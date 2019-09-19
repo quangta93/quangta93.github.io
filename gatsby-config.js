@@ -78,6 +78,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
+      gfm: true,
       options: {
         plugins: [
           {
