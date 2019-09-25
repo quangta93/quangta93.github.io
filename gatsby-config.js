@@ -8,14 +8,14 @@ const postCSSMixins = require('postcss-mixins')
 module.exports = {
   siteMetadata: {
     title: `Quang Tran`,
-    description: `Personal blog and portfolio site`,
+    description: `Personal blog`,
     copyrights: '',
     author: `@quangta93`,
     logo: {
       src: '',
       alt: '',
     },
-    logoText: 'foo bar',
+    logoText: 'quangta93',
     defaultTheme: 'dark',
     postsPerPage: 5,
     showMenuItems: 2,
