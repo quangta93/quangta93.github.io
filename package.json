@@ -22,7 +22,7 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
-    "gatsby": "^2.9.4",
+    "gatsby": "^2.15.20",
     "gatsby-awesome-pagination": "^0.3.3",
     "gatsby-image": "^2.1.4",
     "gatsby-plugin-google-analytics": "^2.0.21",
@@ -36,6 +36,7 @@
     "gatsby-source-filesystem": "^2.0.39",
     "gatsby-transformer-remark": "^2.4.0",
     "gatsby-transformer-sharp": "^2.1.21",
+    "global": "^4.4.0",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.6",

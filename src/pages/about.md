@@ -7,7 +7,7 @@ path: "/about"
 
 Hi there,
 
-My name is Quang Tran. I'm an UI Engineer at Apple Inc.
+My name is Quang Tran. I'm an UI Engineer at Citadel Securities. Former UI Engineer at Apple Inc.
 
 I enjoy building web applications using [ReactJS](https://reactjs.org). Currently exploring [Flutter](https://flutter.dev/).
 

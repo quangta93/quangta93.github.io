@@ -15,7 +15,7 @@ module.exports = {
       src: '',
       alt: '',
     },
-    logoText: 'hello friend',
+    logoText: 'foo bar',
     defaultTheme: 'dark',
     postsPerPage: 5,
     showMenuItems: 2,
