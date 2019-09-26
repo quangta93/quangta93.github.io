@@ -15,6 +15,8 @@ const Post = ({
   excerpt,
   tags,
   html,
+  timeToRead,
+  isBlogPost,
   previousPost,
   nextPost,
 }) => {
@@ -33,7 +35,7 @@ const Post = ({
           {excerpt ? <Link to={path}>{title}</Link> : title}
         </h1>
         <div className={style.meta}>
-          {date}
+          {date} {(timeToRead && isBlogPost) && <>- {timeToRead} minutes</>}
           {tags ? (
             <div className={style.tags}>
               {tags.map(tag => (
@@ -68,15 +70,18 @@ const Post = ({
               nextPath={nextPath}
               nextLabel={nextLabel}
             />
-            <div className={style.twitterDiscussion}>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={discussUrl}
-              >
-                Discuss on Twitter
-              </a>
-            </div>
+
+            {isBlogPost && (
+              <div className={style.twitterDiscussion}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={discussUrl}
+                >
+                  Discuss on Twitter
+                </a>
+              </div>
+            )}
           </>
         )}
       </div>
@@ -92,6 +97,8 @@ Post.propTypes = {
   excerpt: PropTypes.string,
   html: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
+  timeToRead: PropTypes.number,
+  isBlogPost: PropTypes.bool,
   previousPost: PropTypes.object,
   nextPost: PropTypes.object,
 }

@@ -19,6 +19,8 @@ const BlogPostTemplate = ({ data, pageContext }) => {
     excerpt: autoExcerpt,
     id,
     html,
+    timeToRead,
+    fileAbsolutePath,
   } = data.markdownRemark
   const { next, previous } = pageContext
 
@@ -35,6 +37,8 @@ const BlogPostTemplate = ({ data, pageContext }) => {
         tags={tags}
         previousPost={previous}
         nextPost={next}
+        timeToRead={timeToRead}
+        isBlogPost={fileAbsolutePath.includes('posts')}
       />
     </Layout>
   )
@@ -70,6 +74,8 @@ export const pageQuery = graphql`
       id
       html
       excerpt
+      timeToRead
+      fileAbsolutePath
     }
   }
 `
