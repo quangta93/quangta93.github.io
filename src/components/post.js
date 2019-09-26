@@ -12,7 +12,6 @@ const Post = ({
   date,
   path,
   coverImage,
-  author,
   excerpt,
   tags,
   html,
@@ -34,7 +33,7 @@ const Post = ({
           {excerpt ? <Link to={path}>{title}</Link> : title}
         </h1>
         <div className={style.meta}>
-          {date} {author && <>— Written by {author}</>}
+          {date}
           {tags ? (
             <div className={style.tags}>
               {tags.map(tag => (
@@ -90,7 +89,6 @@ Post.propTypes = {
   date: PropTypes.string,
   path: PropTypes.string,
   coverImage: PropTypes.object,
-  author: PropTypes.string,
   excerpt: PropTypes.string,
   html: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),

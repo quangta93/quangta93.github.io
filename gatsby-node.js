@@ -129,8 +129,7 @@ exports.sourceNodes = ({ actions }) => {
 
     type Frontmatter {
       title: String!
-      author: String
-      date: Date!
+      date: Date
       path: String!
       tags: [String!]
       excerpt: String
