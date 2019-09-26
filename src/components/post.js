@@ -19,10 +19,13 @@ const Post = ({
   previousPost,
   nextPost,
 }) => {
-  const previousPath = previousPost && previousPost.frontmatter.path
-  const previousLabel = previousPost && previousPost.frontmatter.title
-  const nextPath = nextPost && nextPost.frontmatter.path
-  const nextLabel = nextPost && nextPost.frontmatter.title
+  const previousPath = previousPost && previousPost.frontmatter.path;
+  const previousLabel = previousPost && previousPost.frontmatter.title;
+  const nextPath = nextPost && nextPost.frontmatter.path;
+  const nextLabel = nextPost && nextPost.frontmatter.title;
+
+  const encoded = encodeURIComponent(`https://quangta93.github.com${path}`);
+  const discussUrl = `https://twitter.com/search?q=${encoded}`;
 
   return (
     <div className={style.post}>
@@ -66,6 +69,15 @@ const Post = ({
               nextPath={nextPath}
               nextLabel={nextLabel}
             />
+            <div className={style.twitterDiscussion}>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={discussUrl}
+              >
+                Discuss on Twitter
+              </a>
+            </div>
           </>
         )}
       </div>
