@@ -1,5 +1,6 @@
 @import "./fonts.css";
 @import "./variables.css";
+@import "./code-block.css";
 
 html {
   box-sizing: border-box;
@@ -136,7 +137,7 @@ figure {
 }
 
 code {
-  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+  font-family: "Roboto Mono", Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
   font-feature-settings: normal;
   font-weight: normal;
   background: var(--light-background-secondary);
@@ -229,7 +230,7 @@ ol ol {
 }
 
 button, input, textarea {
-  font-family: 'Inter UI', -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",  Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",  Helvetica, Arial, sans-serif;
 }
 
 .container {
@@ -333,5 +334,6 @@ footer {
 
 code[class*="language-"],
 pre[class*="language-"] {
+  margin-top: 0;
   font-family: "Roboto Mono";
 }
