@@ -331,9 +331,3 @@ footer {
     }
   }
 }
-
-code[class*="language-"],
-pre[class*="language-"] {
-  margin-top: 0;
-  font-family: "Roboto Mono";
-}

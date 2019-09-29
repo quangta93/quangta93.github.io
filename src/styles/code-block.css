@@ -197,3 +197,18 @@ pre[data-line] {
   float: left;
   min-width: 100%;
 }
+
+/* Shame.css */
+code[class*="language-"],
+pre[class*="language-"] {
+  margin-top: 0;
+  font-family: "Roboto Mono";
+}
+
+:not(pre) > code[class*='language-'] {
+  background-color: var(--light-background-secondary);
+}
+
+body.dark-theme :not(pre) > code[class*='language-'] {
+  background-color: var(--dark-background-secondary);
+}
